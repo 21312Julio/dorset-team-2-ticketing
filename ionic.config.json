@@ -1,0 +1,7 @@
+{
+  "name": "Cineplex",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

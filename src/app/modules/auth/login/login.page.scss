@@ -1,0 +1,78 @@
+:host {
+  height: 100%;
+}
+.login-content {
+  --background: #464646;
+  text-align: center;
+}
+.company-logo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.content {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  color: #fff;
+  .login {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    min-height: 100%;
+    height: auto;
+    padding: 2em 0;
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 90%;
+      .title {
+        font-weight: 600;
+        font-size: 17px;
+      }
+      .logo {
+        margin-bottom: 40px;
+      }
+      .form-auth-styles {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        max-width: 400px;
+        width: 86%;
+        .login-form-field {
+          margin-bottom: 8px;
+        }
+        .input-item {
+          --padding-start: 16px;
+          border-radius: 10px;
+          --background: white;
+          .input-icon {
+            color: #242424;
+            font-size: 22px;
+            margin-right: 12px;
+          }
+          .form-input {
+            color: #242424;
+            height: 50px;
+            font-size: 12px !important;
+            font-weight: normal !important;
+          }
+        }
+        .error-container {
+          text-align: left;
+          margin-bottom: 6px;
+        }
+        ion-button {
+          margin-top: 20px;
+        }
+      }
+      .text-link {
+        color: #fff;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

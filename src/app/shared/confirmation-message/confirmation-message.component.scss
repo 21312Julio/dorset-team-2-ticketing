@@ -1,0 +1,28 @@
+.confirmation-message-wrapper {
+  text-align: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  .confirmation-page-icon {
+    margin-bottom: 1em;
+  }
+  .page-title {
+    color: white;
+    font-weight: 500;
+  }
+  .page-desc {
+    p {
+      font-size: 13px;
+      &:nth-child(1) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .button-full {
+    max-width: 300px;
+  }
+}

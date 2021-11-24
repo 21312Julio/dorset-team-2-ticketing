@@ -1,0 +1,44 @@
+<ion-header class="bg-header">
+  <ion-toolbar class="transparent">
+    <ion-title> Events</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="filter-btn" color="light" (click)="changeDate()">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="page-content">
+  <div class="events">
+    <div class="event">
+      <div class="event-title">Venom</div>
+      <div class="event-detail">
+        <div class="event-poster">
+          <img src="./assets/images/posters/poster-1.png" />
+        </div>
+        <div class="event-timings" (click)="pickSeat()">
+          <div class="slot">16:00</div>
+          <div class="slot">18:00</div>
+          <div class="slot">20:00</div>
+          <div class="slot">22:00</div>
+          <div class="slot">00:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="event-title">John Wick 3</div>
+      <div class="event-detail">
+        <div class="event-poster">
+          <img src="./assets/images/posters/poster-2.png" />
+        </div>
+        <div class="event-timings" (click)="pickSeat()">
+          <div class="slot">12:00</div>
+          <div class="slot">14:00</div>
+          <div class="slot">16:00</div>
+          <div class="slot">18:00</div>
+          <div class="slot">20:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
