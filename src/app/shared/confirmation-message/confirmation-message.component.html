@@ -1,0 +1,11 @@
+<div class="confirmation-message-wrapper">
+  <div *ngIf="message.icon" class="confirmation-page-icon">
+    <img [src]="message.icon" />
+  </div>
+  <ion-label class="page-title">{{ message.title }}</ion-label>
+  <div class="ion-margin-top" *ngIf="message.buttonName && message.buttonLink">
+    <ion-button color="danger" expand="block" mode="ios" (click)="continue(message.buttonLink)"
+      >{{ message.buttonName }}
+    </ion-button>
+  </div>
+</div>
