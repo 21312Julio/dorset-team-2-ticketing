@@ -1,0 +1,59 @@
+// Remove safe-area padding on footer when inside ion-tabs.
+ion-tabs {
+  ion-footer ion-toolbar:last-of-type {
+    --ion-safe-area-bottom: 0;
+  }
+}
+ion-footer {
+  ion-toolbar {
+    --border-width: 0px !important;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    --background: #464646;
+  }
+}
+
+.confirmation-footer {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  .confirmation-message {
+    font-size: 20px;
+    text-align: center;
+
+    ion-icon {
+      font-size: 48px;
+      color: #000000;
+    }
+  }
+
+  .confirmation-buttons {
+    padding-top: 15px;
+  }
+}
+
+.confirmation-buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  ion-button {
+    ion-spinner {
+      margin-right: 5px;
+    }
+  }
+
+  ion-button[color="medium"] {
+    // to change the text color, due to color="light"
+    --ion-color-light-contrast: rgba(60, 60, 67, 0.6);
+  }
+}

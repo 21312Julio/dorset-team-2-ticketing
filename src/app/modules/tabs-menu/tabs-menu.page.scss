@@ -1,0 +1,16 @@
+.tabs {
+  .tabs-bar {
+    --background: var(--ion-color-danger);
+    --color: white;
+    --color-selected: #9e9e9e;
+  }
+  .tab-selected {
+    color: #9e9e9e;
+  }
+  ion-tab-button {
+    ion-icon {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+  }
+}

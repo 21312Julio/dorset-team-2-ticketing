@@ -1,0 +1,26 @@
+<ion-header class="bg-header">
+  <ion-toolbar class="transparent">
+    <ion-title> Events</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="filter-btn" color="light" (click)="changeDate()">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content">
+  <div class="events" *ngFor='let data of datauser'>
+    <div class="event">
+      <div class='event-title'>{{data.title}}</div>
+      <div class="event-detail">
+        <div class="event-poster">
+          <img src={{data.thumbnail}} />
+        </div>
+        <div class='event-timings' (click)='pickSeat()'>
+          <div class='slot'>{{data.runningTimes.mon}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

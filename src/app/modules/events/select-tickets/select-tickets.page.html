@@ -1,0 +1,71 @@
+<ion-header class="bg-header">
+  <ion-toolbar class="transparent">
+    <ion-buttons slot="start">
+      <ion-icon
+        class="back-btn"
+        (click)="goBack()"
+        name="chevron-back"
+        color="light"
+      ></ion-icon>
+    </ion-buttons>
+    <ion-title> Select your tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="page-content">
+  <div class="event-detail">
+    <div class="event-name">Venom</div>
+    <div class="event-slot">
+      Sunday, 14 November, 20:00 <br />
+      Dublin
+    </div>
+  </div>
+  <br />
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <div class="category">Adult</div>
+        <div class="price">€10.00</div>
+      </ion-label>
+      <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <div class="category">Child</div>
+        <div class="price">€7.00</div>
+      </ion-label>
+      <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <div class="category">Family</div>
+        <div class="price">€30.00</div>
+      </ion-label>
+      <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <br />
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <div class="category">Total Price</div>
+      </ion-label>
+      <ion-text slot="end">
+        <div class="total">€00.00</div>
+      </ion-text>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="confirmation-buttons">
+      <ion-button
+        expand="block"
+        (click)="bookedSuccess()"
+        size="default"
+        color="danger"
+      >
+        Continue
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
