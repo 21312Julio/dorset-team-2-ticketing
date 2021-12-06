@@ -46,6 +46,7 @@ export class EventsPage{
   async getDataUser() {
     const date = new Date(this.dateStr);
     const dateString = date.toLocaleDateString('en-IE', {weekday: 'short'});
+    const tempDate = new Set();
     await this.api.getDataUser()
       .subscribe(res => {
         console.log(res);
@@ -58,26 +59,18 @@ export class EventsPage{
       .subscribe(res => {
         this.datadays = res.movies;
         for (const value of Object.entries(this.datadays)) {
-          console.log(value);
           for (const title of Object.entries(value[1])) {
             if (title[0] === 'runningTimes') {
-              console.log(title[1]);
+              for (const dayNameTime of Object.entries(title[1])) {
+                if (dayNameTime[0] === dateString) {
+                  console.log(dayNameTime);
+                }
+              }
             }
           }
         };
       });
   }
-
-  // getDayName() {
-  //   const date = new Date(this.dateStr);
-  //   const dateString = date.toLocaleDateString('en-IE', {weekday: 'short'});
-  //   const mydiv = document.getElementById('dayWeek');
-  //   const divTag = document.createElement('div');
-  //   divTag.innerText = {{data.runningTimes.${dateString}}};
-  //   mydiv.appendChild(divTag);
-  //   console.log(dateString);
-  // }
-
 }
 
 
