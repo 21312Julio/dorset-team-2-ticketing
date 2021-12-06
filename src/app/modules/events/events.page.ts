@@ -14,7 +14,7 @@ import { getDate, toDate } from 'date-fns';
 export class EventsPage{
   datauser: any;
   datadays: any;
-  days: Array<string>;
+  days: any;
   today = new Date();
   dateStr = (this.today.getFullYear()+'/'+(this.today.getMonth()+1)+'/'+this.today.getDate()).toString();
 
@@ -24,10 +24,6 @@ export class EventsPage{
   ngOnInit() {
     this.getDataUser();
   }
-
-  // ionViewWillEnter() {
-  //   this.getDayName();
-  // }
 
   pickSeat(): void {
     this.router.navigateByUrl('/tabs/events/pick-seats');
@@ -46,7 +42,7 @@ export class EventsPage{
   async getDataUser() {
     const date = new Date(this.dateStr);
     const dateString = date.toLocaleDateString('en-IE', {weekday: 'short'});
-    const tempDate = new Set();
+    const tempDate: any[] = Array<any>();
     await this.api.getDataUser()
       .subscribe(res => {
         console.log(res);
@@ -63,12 +59,15 @@ export class EventsPage{
             if (title[0] === 'runningTimes') {
               for (const dayNameTime of Object.entries(title[1])) {
                 if (dayNameTime[0] === dateString) {
-                  console.log(dayNameTime);
+                  // console.log(dayNameTime);
+                  tempDate.push(dayNameTime[1]);
                 }
               }
             }
           }
         };
+        console.log(tempDate);
+        this.days = tempDate;
       });
   }
 }
