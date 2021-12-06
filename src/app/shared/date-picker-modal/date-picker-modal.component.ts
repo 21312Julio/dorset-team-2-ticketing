@@ -57,4 +57,5 @@ export class DatePickerModal {
     this.selectedDate = undefined;
     this.confirm();
   }
+
 }
