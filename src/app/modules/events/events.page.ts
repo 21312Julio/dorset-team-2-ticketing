@@ -12,7 +12,7 @@ import { getDate, toDate } from 'date-fns';
 })
 
 export class EventsPage{
-  finalData: any;
+  finalData: any[] = [];
   datauser: any;
   datadays: any;
   days: any;
@@ -46,7 +46,7 @@ export class EventsPage{
     const tempDate: any[] = Array<any>();
     await this.api.getDataUser()
       .subscribe(res => {
-        console.log(res);
+        // console.log(res);
         this.datauser = res.movies;
     console.log(this.datauser);
       }, err => {
@@ -77,14 +77,17 @@ export class EventsPage{
             if (j === 0 && i === 0) {
               value.push({timeOfDisplay: tempDate[0]});
               console.log(value);
+              this.finalData.push(value);
             }
             if (j === 1 && i === 0) {
               value.push({timeOfDisplay: tempDate[1]});
               console.log(value);
+              this.finalData.push(value);
             }
             if (j === 2 && i === 0) {
               value.push({timeOfDisplay: tempDate[2]});
               console.log(value);
+              this.finalData.push(value);
             }
             i++;
             console.log(i);
@@ -92,8 +95,8 @@ export class EventsPage{
           i = 0;
           j++;
           console.log(j);
+          console.log(this.finalData);
         }
-        console.log(this.datadays);
         this.days = tempDate;
       });
   }
