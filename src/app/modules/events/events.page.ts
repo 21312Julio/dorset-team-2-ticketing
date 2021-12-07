@@ -12,6 +12,7 @@ import { getDate, toDate } from 'date-fns';
 })
 
 export class EventsPage{
+  set = new Set();
   finalData: any[] = [];
   datauser: any;
   datadays: any;
@@ -101,16 +102,26 @@ export class EventsPage{
       });
   }
 
-  // async returnDate(data) {
-  //   const date = new Date(this.dateStr);
-  //   const dateString = date.toLocaleDateString('en-IE', {weekday: 'short'});
-  //   // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-  //   function set(obj, str) {
-  //     // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-  //     return str.split('.').reduce(function(o, x) { return o[x]; }, obj);
+  // async createTimes(data) {
+  //   console.log(data);
+  //   for (const [key, value] of Object.entries(data)) {
+  //     this.set.add(value);
   //   }
-  //   console.log(set(data, dateString));
+  //   for (const [key, value] of Object.entries(data)) {}
+  //   console.log(this.set);
+  //   const div = document.createElement('div');
+  //   const times = data.split(',');
+  //   // eslint-disable-next-line guard-for-in
+  //   for (const x in times) {
+  //     div.className = 'slot';
+  //     div.innerText = x;
+  //     document.getElementById('times').appendChild(div);
+  //   }
   // }
+
+  checkDiv() {
+    return null;
+  }
 }
 
 
