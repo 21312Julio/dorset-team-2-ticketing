@@ -12,6 +12,7 @@ import { getDate, toDate } from 'date-fns';
 })
 
 export class EventsPage{
+  finalData: any;
   datauser: any;
   datadays: any;
   days: any;
@@ -55,21 +56,58 @@ export class EventsPage{
       .subscribe(res => {
         this.datadays = res.movies;
         for (const value of Object.entries(this.datadays)) {
+          // console.log(value);
           for (const title of Object.entries(value[1])) {
             if (title[0] === 'runningTimes') {
               for (const dayNameTime of Object.entries(title[1])) {
                 if (dayNameTime[0] === dateString) {
-                  // console.log(dayNameTime);
+                  //console.log(dayNameTime);
                   tempDate.push(dayNameTime[1]);
+                  //console.log(dayNameTime[1]);
                 }
               }
             }
           }
         };
-        console.log(tempDate);
+        let i = 0;
+        let j = 0;
+        for (const value of Object.entries(this.datadays)) {
+          value.shift();
+          while (i < 3) {
+            if (j === 0 && i === 0) {
+              value.push({timeOfDisplay: tempDate[0]});
+              console.log(value);
+            }
+            if (j === 1 && i === 0) {
+              value.push({timeOfDisplay: tempDate[1]});
+              console.log(value);
+            }
+            if (j === 2 && i === 0) {
+              value.push({timeOfDisplay: tempDate[2]});
+              console.log(value);
+            }
+            i++;
+            console.log(i);
+          }
+          i = 0;
+          j++;
+          console.log(j);
+        }
+        console.log(this.datadays);
         this.days = tempDate;
       });
   }
+
+  // async returnDate(data) {
+  //   const date = new Date(this.dateStr);
+  //   const dateString = date.toLocaleDateString('en-IE', {weekday: 'short'});
+  //   // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+  //   function set(obj, str) {
+  //     // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+  //     return str.split('.').reduce(function(o, x) { return o[x]; }, obj);
+  //   }
+  //   console.log(set(data, dateString));
+  // }
 }
 
 

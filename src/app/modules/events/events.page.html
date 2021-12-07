@@ -17,9 +17,14 @@
         <div class="event-poster">
           <img src={{data.thumbnail}} />
         </div>
-        <div class='event-timings' (click)='pickSeat()' *ngFor='let name of days'>
-          <div class="slot" *ngFor='let x of name'>
-            {{x}}
+        <!-- <div class='event-timings' (click)='pickSeat()' *ngFor='let name of days | slice:0:1; let i = index'>
+          <div class="slot">
+            {{name[i]}}
+          </div>
+        </div> -->
+        <div class="event-timings" (click)='pickSeat()'>
+          <div class="slot">
+            <!-- {{returnDate(data.runningTimes)}} -->
           </div>
         </div>
       </div>
