@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { DatePickerModal } from 'src/app/shared/date-picker-modal/date-picker-modal.component';
 import { ApiService } from 'src/app/services/fetchdata/api.service';
 import { getDate, toDate } from 'date-fns';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-events',
@@ -25,6 +26,13 @@ export class EventsPage{
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit() {
     this.getDataUser();
+  }
+
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
+  ngAfterViewInit() {
+    // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+    $(document).ready(function() {
+    });
   }
 
   pickSeat(): void {
@@ -118,10 +126,6 @@ export class EventsPage{
   //     document.getElementById('times').appendChild(div);
   //   }
   // }
-
-  checkDiv() {
-    return null;
-  }
 }
 
 
