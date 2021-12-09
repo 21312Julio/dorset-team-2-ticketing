@@ -1,0 +1,96 @@
+<ion-content class="login-content">
+  <div class="content">
+    <div class="login">
+      <div class="login-form">
+        <img class="logo" [src]="logo" />
+        <form
+          class="form-auth-styles"
+          *ngIf="form"
+          [formGroup]="form"
+          (submit)="submitRegisterForm()"
+        >
+          <div class="login-form-field">
+            <ion-item mode="ios" class="input-item" detail="false" lines="none">
+              <ion-icon
+                slot="start"
+                class="input-icon"
+                name="person-outline"
+              ></ion-icon>
+              <ion-input
+                class="form-input"
+                name="name"
+                type="text"
+                formControlName="name"
+                placeholder="Name"
+              ></ion-input>
+            </ion-item>
+          </div>
+          <div class="error-container">
+            <form-field-error [control]="form.controls.name"></form-field-error>
+          </div>
+          <div class="login-form-field">
+            <ion-item mode="ios" class="input-item" detail="false" lines="none">
+              <ion-icon
+                slot="start"
+                class="input-icon"
+                name="at-outline"
+              ></ion-icon>
+              <ion-input
+                class="form-input"
+                name="email"
+                type="email"
+                formControlName="email"
+                placeholder="Email"
+              ></ion-input>
+            </ion-item>
+          </div>
+          <div class="error-container">
+            <form-field-error
+              [control]="form.controls.email"
+            ></form-field-error>
+          </div>
+          <div class="login-form-field">
+            <ion-item mode="ios" class="input-item" detail="false" lines="none">
+              <ion-icon
+                slot="start"
+                class="input-icon"
+                name="lock-closed-outline"
+              ></ion-icon>
+              <ion-input
+                class="form-input"
+                name="password"
+                type="password"
+                formControlName="password"
+                placeholder="Password"
+              ></ion-input>
+            </ion-item>
+          </div>
+          <div class="error-container">
+            <form-field-error
+              [control]="form.controls.password"
+            ></form-field-error>
+          </div>
+          <ion-button
+            type="submit"
+            expand="block"
+            color="danger"
+            mode="ios"
+            [disabled]="!form.valid"
+          >
+            Register
+          </ion-button>
+        </form>
+        <br />
+        <ion-button
+          type="submit"
+          expand="block"
+          color="dark"
+          mode="ios"
+          [routerLink]="'/auth/login'"
+        >
+          Already have an account
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

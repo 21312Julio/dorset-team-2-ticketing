@@ -1,0 +1,134 @@
+<ion-header class="bg-header">
+  <ion-toolbar class="transparent">
+    <ion-title> Events</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="filter-btn" color="light" (click)="changeDate()">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="page-content">
+  <ng-container *ngIf="allMovies;else loading">
+    <div class="events" *ngIf="allMovies.length > 0; else noMovies">
+      <div class="event" *ngFor="let movie of allMovies">
+        <div class="event-title">{{movie.movieName}}</div>
+        <div class="event-detail">
+          <div class="event-poster">
+            <img [src]="movie.poster" />
+          </div>
+          <ng-container *ngIf="movie && movie.slots;else noSlots">
+            <div class="event-timings">
+              <ng-container *ngFor="let slot of movie.slots">
+                <div class="slot" (click)="pickSeat(slot,movie.id,movie.date)">
+                  {{slot}}
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ion-content>
+
+<ng-template #noMovies>
+  <ion-text color="light">
+    <p>No Upcoming Events</p>
+  </ion-text>
+</ng-template>
+
+<ng-template #noSlots>
+  <ion-text color="light">
+    <p>No Slots</p>
+  </ion-text>
+</ng-template>
+
+<ng-template #loading>
+  <div class="events">
+    <div class="event">
+      <div class="event-title">
+        <ion-skeleton-text
+          animated
+          style="height: 30px; width: 60%"
+        ></ion-skeleton-text>
+      </div>
+      <div class="event-detail">
+        <div class="event-poster">
+          <ion-skeleton-text
+            animated
+            style="height: 210px; width: 100%"
+          ></ion-skeleton-text>
+        </div>
+        <div class="event-timings">
+          <div>
+            <ion-skeleton-text
+              animated
+              style="height: 37px; width: 100%; margin-bottom: 10px"
+            ></ion-skeleton-text>
+          </div>
+          <div>
+            <ion-skeleton-text
+              animated
+              style="height: 37px; width: 100%; margin-bottom: 10px"
+            ></ion-skeleton-text>
+          </div>
+          <div>
+            <ion-skeleton-text
+              animated
+              style="height: 37px; width: 100%; margin-bottom: 10px"
+            ></ion-skeleton-text>
+          </div>
+          <div>
+            <ion-skeleton-text
+              animated
+              style="height: 37px; width: 100%; margin-bottom: 10px"
+            ></ion-skeleton-text>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="event-title">
+        <ion-skeleton-text
+          animated
+          style="height: 30px; width: 60%"
+        ></ion-skeleton-text>
+      </div>
+      <div class="event-detail">
+        <div class="event-poster">
+          <ion-skeleton-text
+            animated
+            style="height: 210px; width: 100%"
+          ></ion-skeleton-text>
+        </div>
+        <div class="event-timings">
+          <div>
+            <ion-skeleton-text
+              animated
+              style="height: 37px; width: 100%; margin-bottom: 10px"
+            ></ion-skeleton-text>
+          </div>
+          <div>
+            <ion-skeleton-text
+              animated
+              style="height: 37px; width: 100%; margin-bottom: 10px"
+            ></ion-skeleton-text>
+          </div>
+          <div>
+            <ion-skeleton-text
+              animated
+              style="height: 37px; width: 100%; margin-bottom: 10px"
+            ></ion-skeleton-text>
+          </div>
+          <div>
+            <ion-skeleton-text
+              animated
+              style="height: 37px; width: 100%; margin-bottom: 10px"
+            ></ion-skeleton-text>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

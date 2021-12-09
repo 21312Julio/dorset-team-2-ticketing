@@ -1,0 +1,94 @@
+*:focus {
+  outline: none;
+}
+
+:root,
+body {
+  font-family: "montserrat", sans-serif;
+  --ion-font-family: "montserrat", sans-serif;
+}
+
+.login .error-message {
+  color: #ffffff;
+}
+
+ion-button {
+  font-weight: 500;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  --webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.login-form {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #000 !important;
+  }
+}
+
+ion-content.page-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 40px;
+  --padding-bottom: 20px;
+  --background: #464646;
+}
+
+// Override ion refresher css
+ion-refresher-content {
+  --color: var(--whitelabel-pull-to-refresh-color, #fff) !important;
+}
+
+.refresher-md .refresher-pulling-icon,
+.refresher-md .refresher-pulling-text,
+.refresher-md .refresher-refreshing-icon,
+.refresher-md .refresher-refreshing-text,
+.refresher-ios .refresher-pulling-icon,
+.refresher-ios .refresher-pulling-text,
+.refresher-ios .refresher-refreshing-icon,
+.refresher-ios .refresher-refreshing-text {
+  color: var(--whitelabel-pull-to-refresh-color, #fff) !important;
+}
+
+.ion-text {
+  font-size: 13px;
+  color: #ffffff;
+}
+
+// Font size for ion infinite sroll loading text
+.infinite-scroll-content-ios .infinite-loading-text {
+  font-size: 13px;
+}
+
+// ion-spinner
+.spinner-content {
+  margin: auto;
+  position: absolute;
+  z-index: 1;
+  top: 10vh;
+  right: 45vw;
+  bottom: 0;
+  left: 45vw;
+}
+
+.modal-wrapper.sc-ion-modal-ios,
+.modal-shadow.sc-ion-modal-ios {
+  background: #464646;
+}
+
+ion-list.list-items {
+  ion-item {
+    --border-color: gray;
+    --color: white;
+    --inner-padding-top: 8px;
+    --inner-padding-bottom: 8px;
+    --padding-start: 16px;
+    ion-icon[slot="end"] {
+      font-size: 18px;
+    }
+  }
+}

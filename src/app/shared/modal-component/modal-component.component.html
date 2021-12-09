@@ -1,0 +1,16 @@
+<ion-header>
+  <div class="modal-header">
+    <div class="modal-title-wrapper">
+      {{ modalTitle }}
+    </div>
+    <div class="close-button" *ngIf="closeButton">
+      <ion-icon name="close-circle" (click)="close()"></ion-icon>
+    </div>
+  </div>
+</ion-header>
+
+<div class="inner-content">
+  <div class="modal-content">
+    <ng-content></ng-content>
+  </div>
+</div>

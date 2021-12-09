@@ -1,0 +1,45 @@
+.back-btn {
+  font-size: 30px !important;
+  margin-left: 1px;
+}
+.event-detail {
+  .event-name {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+  }
+  .event-slot {
+    font-size: 12px;
+    color: white;
+    line-height: 18px;
+  }
+}
+ion-item {
+  --background: #464646;
+  --padding-start: 0px;
+  --inner-padding-start: 6px;
+  --inner-padding-end: 0px;
+  --padding-end: 0px;
+  color: white;
+  &.item-disabled {
+    --background: #464646;
+    opacity: 0.8;
+  }
+  .category {
+    font-weight: 600;
+    padding-bottom: 4px;
+  }
+  .price,
+  .total {
+    color: #ff8484;
+    font-size: 12px;
+  }
+  ion-icon {
+    color: #ff8484;
+  }
+}
+
+ion-icon.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}

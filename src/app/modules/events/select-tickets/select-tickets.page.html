@@ -1,0 +1,124 @@
+<ion-header class="bg-header">
+  <ion-toolbar class="transparent">
+    <ion-buttons slot="start">
+      <ion-icon
+        class="back-btn"
+        (click)="goBack()"
+        name="chevron-back"
+        color="light"
+      ></ion-icon>
+    </ion-buttons>
+    <ion-title> Select your Tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="page-content">
+  <ng-container *ngIf="movieDetail">
+    <div class="event-detail">
+      <div class="event-name">{{movieDetail.movieName}}</div>
+      <div class="event-slot" *ngIf="movieDetail.date && movieDetail.date">
+        {{ formatDayDateNoTZ(format(movieDetail.date)) }},
+        <span *ngIf="slot">{{slot}}</span> <br />
+        <ng-container *ngIf="movieDetail.hall">
+          {{movieDetail.hall}}
+        </ng-container>
+      </div>
+    </div>
+    <br />
+    <ion-list>
+      <ion-item
+        *ngIf="movieDetail.adultSeat"
+        [disabled]="selectedFamilyTickets === 1"
+      >
+        <ion-label>
+          <div class="category">Adult</div>
+          <div class="price">€{{movieDetail.adultSeat}}.00</div>
+        </ion-label>
+        <ion-icon
+          slot="end"
+          name="remove-circle-outline"
+          (click)="minusAdultTicket()"
+          [class.disabled]="selectedAdultTickets === 0"
+        ></ion-icon>
+        <ion-icon
+          slot="end"
+          name="add-circle-outline"
+          (click)="addAdultTicket()"
+          [class.disabled]="selectedAdultTickets === 5 || totalTickets() === selectedSeats.length"
+        ></ion-icon>
+      </ion-item>
+      <ion-item
+        *ngIf="movieDetail.childSeat"
+        [disabled]="selectedSeats && selectedSeats.length <= 1 || selectedAdultTickets === 0 || selectedFamilyTickets === 1"
+      >
+        <ion-label>
+          <div class="category">Child</div>
+          <div class="price">€{{movieDetail.childSeat}}.00</div>
+        </ion-label>
+        <ion-icon
+          slot="end"
+          name="remove-circle-outline"
+          (click)="minusChildTicket()"
+          [class.disabled]="selectedChildTickets === 0"
+        ></ion-icon>
+        <ion-icon
+          slot="end"
+          name="add-circle-outline"
+          (click)="addChildTicket()"
+          [class.disabled]="selectedChildTickets === 4 || totalTickets() === selectedSeats.length"
+        ></ion-icon>
+      </ion-item>
+      <ion-item
+        *ngIf="movieDetail.familySeat"
+        [disabled]="selectedSeats && selectedSeats.length < 6 || selectedAdultTickets > 1 || selectedChildTickets > 1"
+      >
+        <ion-label>
+          <div class="category">Family</div>
+          <div class="price">€{{movieDetail.familySeat}}.00</div>
+        </ion-label>
+        <ion-icon
+          slot="end"
+          name="remove-circle-outline"
+          (click)="minusFamilyTicket()"
+          [class.disabled]="selectedFamilyTickets === 0"
+        ></ion-icon>
+        <ion-icon
+          slot="end"
+          (click)="addFamilyTicket()"
+          [class.disabled]="selectedFamilyTickets === 1   || totalTickets() === selectedSeats.length || selectedAdultTickets > 1 || selectedChildTickets > 1"
+          name="add-circle-outline"
+        ></ion-icon>
+      </ion-item>
+    </ion-list>
+    <br />
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          <div class="category">Total Price</div>
+        </ion-label>
+        <ion-text slot="end">
+          <div class="total">{{ getTotal() }}</div>
+        </ion-text>
+      </ion-item>
+    </ion-list>
+    <ion-text color="light">
+      <p>Adult Tickets: {{ selectedAdultTickets}}</p>
+      <p>Child Tickets: {{ selectedChildTickets}}</p>
+      <p>Family Tickets: {{ selectedFamilyTickets}}</p>
+    </ion-text>
+  </ng-container>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="confirmation-buttons">
+      <ion-button
+        expand="block"
+        [disabled]="!movieDetail || totalTickets() === 0"
+        (click)="bookedSuccess()"
+        size="default"
+        color="danger"
+      >
+        Continue
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

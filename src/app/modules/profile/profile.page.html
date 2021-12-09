@@ -1,0 +1,24 @@
+<ion-header class="header-bg">
+  <ion-toolbar class="transparent">
+    <div class="profile-header">
+      <ion-avatar class="avatar-bg">
+        <img src="./assets/images/profile.png" />
+      </ion-avatar>
+      <ion-label class="user-name">{{this.currentUser?.email}}</ion-label>
+      <br />
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content">
+  <ion-list mode="ios" class="list-items">
+    <ion-item detail="false" button lines="full" (click)="logout()">
+      <ion-icon
+        slot="start"
+        class="ion-margin-end"
+        src="./assets/icon/signout.svg"
+      ></ion-icon>
+      <ion-label class="signout">Log Out</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,9 @@
+<modal-component modalTitle="Select a Date">
+  <div class="date-picker-container">
+    <input #dateInput type="hidden" style="display: none" />
+  </div>
+  <div class="confirmation-buttons">
+    <ion-button color="medium" (click)="reset()"> Reset Date </ion-button>
+    <ion-button color="danger" (click)="confirm()"> Confirm </ion-button>
+  </div>
+</modal-component>

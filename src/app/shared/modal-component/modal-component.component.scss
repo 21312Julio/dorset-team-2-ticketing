@@ -1,0 +1,49 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .header-md::after {
+    display: none;
+  }
+}
+
+.modal-header {
+  background-color: #464646;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 1.2rem 16px;
+  border-bottom: 1px solid #464646;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  .modal-title-wrapper {
+    margin-right: 6px;
+  }
+}
+
+.close-button {
+  display: flex;
+  align-items: center;
+  ion-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #aaaaaa;
+  }
+}
+
+.inner-content {
+  position: relative;
+  overflow-y: auto;
+  height: 100%; // when fixed height is desired.
+  background: var(--background);
+}
+
+.modal-content {
+  height: 100%; // when fixed height is desired.
+  padding-left: var(--ion-safe-area-left, 0px);
+  padding-right: var(--ion-safe-area-right, 0px);
+  padding-bottom: var(--ion-safe-area-bottom, 0px);
+}

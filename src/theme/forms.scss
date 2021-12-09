@@ -1,0 +1,56 @@
+.stacked-input ion-label {
+  color: var(--ion-color-lightdark) !important;
+  font-size: 13px !important;
+  font-weight: 500;
+}
+.stacked-input ion-select {
+  color: #ffffff;
+  font-size: 13px !important;
+  font-weight: 600;
+}
+ion-input,
+ion-datetime,
+ion-textarea {
+  color: #ffffff;
+  font-size: 13px !important;
+  font-weight: 600;
+}
+
+.error-message {
+  color: var(--ion-color-danger);
+  font-size: 11px;
+  width: 100%;
+  text-align: left;
+  margin-top: -8px;
+  > div {
+    width: 100%;
+  }
+}
+
+// Custom styles for different pages
+app-login .error-message {
+  margin-top: 3px;
+  margin-left: 5px;
+  //color: var(--ion-color-yellow);
+}
+
+ion-item.stacked-input {
+  --padding-start: 0;
+  --padding-end: 0;
+  padding-bottom: 12px;
+  --highlight-height: 0;
+  --inner-padding-end: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  &.item-has-focus ion-label {
+    color: inherit !important;
+  }
+  ion-icon[slot="end"] {
+    font-size: 18px;
+    margin-right: 6px;
+  }
+  ion-select {
+    width: 100%;
+  }
+}

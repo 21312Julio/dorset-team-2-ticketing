@@ -1,0 +1,42 @@
+ion-modal {
+  ion-header {
+    padding-top: calc(var(--ion-safe-area-top, 0) + 10px);
+  }
+}
+ion-modal.action-sheet {
+  --border-radius: 10px 10px 0 0;
+  --max-height: 80vh;
+  --height: 80vh;
+  --width: 100%;
+  align-items: flex-end;
+  ion-header {
+    padding-top: 0px !important;
+  }
+  &.action-sheet-sm {
+    --height: 60vh;
+  }
+  &.action-sheet-xs {
+    --height: 42vh;
+  }
+  &.action-sheet-lg {
+    --height: 80vh;
+  }
+  [role="dialog"] > .ion-page {
+    position: relative;
+    display: block;
+    contain: content;
+    height: 100%; // when fixed height is desired.
+  }
+}
+
+ion-modal.auto-height {
+  --height: auto;
+}
+
+.danger-text-modal .message {
+  color: var(--ion-color-danger);
+}
+
+ion-modal.backDrop {
+  --backdrop-opacity: var(--ion-backdrop-opacity, 0.4) !important;
+}

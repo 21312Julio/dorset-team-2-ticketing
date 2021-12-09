@@ -1,0 +1,66 @@
+date-picker-modal {
+  .date-picker-container {
+    padding: 15px;
+
+    .flatpickr-calendar.arrowTop:before {
+      display: none;
+    }
+
+    .flatpickr-calendar.inline {
+      box-shadow: none;
+    }
+
+    // To make the calendar take full width
+    .flatpickr-calendar,
+    .flatpickr-rContainer,
+    .flatpickr-days,
+    .dayContainer {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    // Due to dayContainer resize we need to margin the span elements in dayContainer
+    // so they align with the week days column
+    .dayContainer {
+      span {
+        // 39px is the flatpickr day number default width
+        // 7 is for 7 days
+        // 100% is .dayContainer total width
+        // 100% - 39px * 7 = remaining extra width to be added to the spans.
+        // 100% - 39px * 7 / 7 = to get the width to add to EACH span
+        // 100% - 39px * 7 / 7 / 2 = to get the width to add to each side: margin-left and margin-right;
+        margin-left: calc(calc(100% - 39px * 7) / 7 / 2);
+        margin-right: calc(calc(100% - 39px * 7) / 7 / 2);
+      }
+    }
+
+    // To remove the year input and up down arrows
+    .numInputWrapper {
+      &:hover {
+        background: none;
+      }
+      .cur-year {
+        font-weight: bold;
+        pointer-events: none;
+      }
+      .arrowUp,
+      .arrowDown {
+        display: none;
+      }
+    }
+
+    // Layout enhancements, pad the calendar to give more space.
+    .flatpickr-months {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      > span {
+        top: unset;
+      }
+    }
+
+    .flatpickr-weekdays {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
